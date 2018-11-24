@@ -14,6 +14,9 @@
 	%DEFINE MIKEOS_VER '4.5'	; OS version number
 	%DEFINE MIKEOS_API_VER 16	; API version for programs to check
 
+	%DEFINE BERGENOS_VER '0.1'	; OS version number
+	;;%DEFINE MIKEOS_API_VER 16	; API version for programs to check
+	
 
 	; This is the location in RAM for kernel disk operations, 24K
 	; after the point where the kernel has loaded; it's 8K in size,
@@ -198,10 +201,13 @@ option_screen:
 
 	; Data for the above code...
 
-	os_init_msg		db 'Welcome to MikeOS', 0
-	os_version_msg		db 'Version ', MIKEOS_VER, 0
+	;;os_init_msg		db 'Welcome to MikeOS', 0
+	;;os_version_msg		db 'Version ', MIKEOS_VER, 0
 
-	dialog_string_1		db 'Thanks for trying out MikeOS!', 0
+	os_init_msg		db 'Bergen Operating System', 0
+	os_version_msg		db 'Version ', BERGENOS_VER, 0
+	
+	dialog_string_1		db 'Welcome to Bergen Operating System!', 0
 	dialog_string_2		db 'Please select an interface: OK for the', 0
 	dialog_string_3		db 'program menu, Cancel for command line.', 0
 
