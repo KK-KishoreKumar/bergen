@@ -19,15 +19,20 @@ cd ..
 
 echo Adding bootsector to disk image...
 cd disk_images
-partcopy ..\source\bootload\bootload.bin 0 200 xmikeos.flp 0
+partcopy ..\source\bootload\bootload.bin 0 200 bergen.flp 0
 cd ..
 
 echo Mounting disk image...
-imdisk -a -f disk_images\xmikeos.flp -s 1440K -m B:
+imdisk -a -f disk_images\bergen.flp -s 1440K -m B:
 
 echo Copying kernel and applications to disk image...
 copy source\kernel.bin b:\
 copy programs\*.bin b:\
+
+rem bergen stuff
+copy c:\bergen\programs\bergen\BERGEN.BIN b:\
+copy c:\bergen\programs\bm\BM.BIN b:\
+
 copy programs\sample.pcx b:\
 copy programs\*.bas b:\
 
