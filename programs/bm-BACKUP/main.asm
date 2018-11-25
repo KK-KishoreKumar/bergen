@@ -242,11 +242,10 @@ bootmanagerSTART:
 	;;#bugbug 
 	;;precisamos ajustar a pilha, fazer verbose a acompanhar o desenvolvimento 
 	;;até alcançarmos o shell.
-	
-	JMP stage2Trap1
+	;;JMP stage2Trap1
 	
 	;; ##DEBUG
-	;JMP $
+	JMP $
 	
     ;;
 	;; Argumento passado pelo MBR. 
@@ -975,11 +974,6 @@ msg_stage2_trap_fail db 'BM: stage2 TRAP FAIL',0
 ;
 AFTER_DATA:
     nop
-	
-    ;;
-    ;; ## TRAP 1 ##
-    ;;	 
-	
 stage2Trap1:  
 
    ;;
@@ -1080,7 +1074,6 @@ stage2Initializations:
 	
 	
 HERE:	
-
 	mov ax, 0 
 	mov ds, ax
 	mov es, ax 
@@ -1093,13 +1086,8 @@ HERE:
 	;mov si, msg_s2_init
 	;call DisplayMessage 
 	
-	;;#IMPORTANTE
-	;;VAMOS IGNORARR A CHECAGEM DE ASSINATURA. 
-	
-	JMP .INIT
-	
 	;Debug.
-	jmp $
+	;jmp $
 	
 	
  
@@ -1187,13 +1175,7 @@ HERE:
 	;EM MUITAS PARTES SE PRECISO ... FAZER ALGO SEMELHANTE EM 32BIT
 	;jmp $
 	
-	;;
-	;;  ## INIT ##
-	;;
 	
-.INIT:	
-
-    NOP	
 	
     ;Turn off FDC motor.
 .turnoffFDCMotor:	
@@ -1204,7 +1186,7 @@ HERE:
    
 .setupRegisters:	
    
-    ;Setup registers.  ;;; TUDO EM 0.
+    ;Setup registers.
 	
     cli
 	mov ax, 0       
@@ -1275,8 +1257,6 @@ HERE:
 	mov si, msg_selecting_videomode
 	call DisplayMessage
 	
-	
-	;;#DEBUG
 	;JMP $
 	
 .preSelection:

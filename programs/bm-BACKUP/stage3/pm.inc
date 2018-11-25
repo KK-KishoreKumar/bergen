@@ -106,9 +106,8 @@ pmFlushPipeline:
 pm32:
 
     ;debug em modo texto.
-    mov byte [0B8000h], byte 'P'
-	mov byte [0B8001h], byte 7
-    jmp $
+    ;mov byte [0B8000h], byte 'P'
+    ;jmp $
 
 	
 	;;
