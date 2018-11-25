@@ -478,12 +478,12 @@ l2hts:			; Calculate head, track and sector settings for int 13h
 	kern_filename	db "BM      BIN"	; MikeOS kernel filename
 	
 	
-	hello_msg	db "2000H:8000H MBR0", 0x13, 0
-	step_1	db "configurando destino...", 0x13,0
-	step_2	db "jmp 0:8000h..", 0x13,0
+	hello_msg	db "2000H:8000H MBR0",  13, 10, 0
+	step_1	db "configurando destino...",  13, 10, 0
+	step_2	db "jmp 0:8000h..",  13, 10, 0
 	
-	disk_error	db "Floppy error! Press any key...",  0x13,0
-	file_not_found	db "KERNEL.BIN not found!",  0x13,0
+	disk_error	db "Floppy error! Press any key...",   13, 10, 0
+	file_not_found	db "KERNEL.BIN not found!",   13, 10, 0
 
 	bootdev		db 0 	; Boot device number
 	cluster		dw 0 	; Cluster of the file we want to load
