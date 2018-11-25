@@ -208,24 +208,32 @@ save_cylinder_numbers: dw 0  ;Número de cilindros do disco.
 ;; Real entry point.
 bootmanagerSTART:
 
-;;;setupRegisters:
+
+;;setupRegisters:
 		
     ;Code located at 0000:0x8000. 
 	;Adjust segment registers and stack.
 	
-    ;cli
-	;mov ax, 0
-    ;mov ds, ax
-    ;mov es, ax
-    ;mov ax, 0x0000
-    ;mov ss, ax
-    ;mov sp, 0x6000   
-    ;sti
+	;mov si, TESTMESSAGE_BERGEN2
+    ;call bootmanagerDisplayMessage		
+	
+    cli
+	mov ax, 0
+    mov ds, ax
+    mov es, ax
+	mov fs, ax
+	mov gs, ax
+    mov ax, 0x0000
+    mov ss, ax
+    mov sp, 0x6000   
+    sti
 	
 	;; #IMPORTANTE
 	;; NO MIKEOS NÃO VAMOS CARREGAR O BL POR ENQUANTO..
 	;; VAMOS DIRETO PARA O SHELL
 	
+	
+	;; 0:8000h carregado pelo /mbr0
 	
 	
 	mov si, TESTMESSAGE_BERGEN

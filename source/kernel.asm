@@ -230,7 +230,38 @@ app_selector:
 	call os_string_compare
 	jc no_kernel_execute		; Show an error message if so
 
+	
 
+	;;============================================================
+
+
+	;mov si, bm_file_name			; Did the user try to run 'KERNEL.BIN'?
+	;mov di, kern_file_name
+	;call os_string_compare
+	;jnc go	;se não for igual, então continua.	
+
+	;es:bx 0:8000h
+	;xor ax, ax
+	;mov ds, ax 
+	;mov es, ax 
+	;mov fs, ax 
+    ;mov gs, ax 
+	
+	;mov ax, si
+	;mov cx, 32768			; Where to load the program file
+	;call os_load_file		; Load filename pointed to by AX
+
+	;push 0h
+	;push 0x8000 
+	;retf 
+	;jmp 0x8000 
+	
+    ;jmp 0:0x8000
+    ;jmp $	
+	
+	;;============================================================
+;go:	
+	
 	; Next, we need to check that the program we're attempting to run is
 	; valid -- in other words, that it has a .BIN extension
 
@@ -345,6 +376,7 @@ not_bas_extension:
 	; And now data for the above code...
 
 	kern_file_name		db 'KERNEL.BIN', 0
+	bm_file_name		db 'BM.BIN', 0
 
 	autorun_bin_file_name	db 'AUTORUN.BIN', 0
 	autorun_bas_file_name	db 'AUTORUN.BAS', 0

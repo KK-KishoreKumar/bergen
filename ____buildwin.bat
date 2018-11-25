@@ -28,7 +28,11 @@ imdisk -a -f disk_images\bergen.flp -s 1440K -m B:
 echo Copying kernel and applications to disk image...
 copy source\kernel.bin b:\
 copy programs\*.bin b:\
+
+rem bergen stuff
+copy c:\bergen\programs\mbr0\MBR0.BIN b:\
 copy c:\bergen\programs\bm\BM.BIN b:\
+
 copy programs\sample.pcx b:\
 copy programs\*.bas b:\
 
